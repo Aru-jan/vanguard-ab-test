@@ -37,12 +37,6 @@ def clean_categorical_data(dataFrames, config):
                     dataFrames[table][column] = dataFrames[table][column].cat.add_categories(['unknown'])
                     dataFrames[table][column] = dataFrames[table][column].fillna('unknown')
     return dataFrames
-
-def display_categorical_value_counts(dataFrames):
-    #TODO : insert into display_dataFrames
-    for dataFrame in dataFrames.values():
-        for column in dataFrame.select_dtypes(include=['category']):
-            display(dataFrame[column].value_counts())
             
 def convert_types(dataFrames, config):
     for table in config['tables']:
