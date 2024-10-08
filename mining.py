@@ -1,5 +1,6 @@
 import yaml
 import pandas as pd
+from IPython.display import display
 
 # import data from txt file into pandas dataframe
 def import_data(paths: list, separator: str = ',') -> pd.DataFrame:

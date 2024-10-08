@@ -14,17 +14,17 @@ tables:
             client_since_year:
                 original_name: clnt_tenure_yr
                 data_type: FLOAT
-                pandas_dtype: float64
+                pandas_dtype: int64
 
             client_since_month:
                 original_name: clnt_tenure_mnth
                 data_type: FLOAT
-                pandas_dtype: float64
+                pandas_dtype: int64
 
             client_age:
                 original_name: clnt_age
                 data_type: FLOAT
-                pandas_dtype: float64
+                pandas_dtype: int64
 
             gender:
                 original_name: gendr
@@ -35,7 +35,7 @@ tables:
             number_of_accounts:
                 original_name: num_accts
                 data_type: FLOAT
-                pandas_dtype: float64
+                pandas_dtype: int64
 
             balance:
                 original_name: bal
@@ -45,12 +45,12 @@ tables:
             calls_6_months:
                 original_name: calls_6_mnth
                 data_type: FLOAT
-                pandas_dtype: float64
+                pandas_dtype: int64
 
             logons_6_month:
                 original_name: logons_6_mnth
                 data_type: FLOAT
-                pandas_dtype: float64
+                pandas_dtype: int64
 
     experiment:
         paths:
@@ -67,7 +67,7 @@ tables:
                 original_name: Variation
                 data_type: VARCHAR(20)
                 pandas_dtype: category
-                valid_categories: [Test, Control, Unknown]
+                valid_categories: [Test, Control]
 
     visits:
         paths:
