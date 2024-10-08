@@ -13,9 +13,7 @@ def import_data(paths: list, separator: str = ',') -> pd.DataFrame:
 def import_data_from_config(config, table_name: str) -> pd.DataFrame:
 
     table = config['tables'][table_name]
-    print(table)
     paths = table.get('paths')
-    print(paths)
     
     separator = table.get('separator', ',')
     
@@ -30,3 +28,4 @@ def parse_config():
 
 def merge_dfs(*dataframes):
     return pd.concat(dataframes, axis=1)
+
