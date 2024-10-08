@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, inspect
 from sqlalchemy.sql import text
 import pandas as pd
 
@@ -33,3 +33,17 @@ def export_dataframes_to_sql(engine, dataframes, config):
 def import_data_from_sql(engine, table_name):
     data = pd.read_sql(f"SELECT * FROM {table_name}", engine)
     return data
+
+def import_all_tables_from_sql(engine):
+    dataframes = {}
+    inspector = inspect(engine)
+    table_names = inspector.get_table_names()
+    
+    for table_name in table_names:
+        dataframes[table_name] = import_data_from_sql(engine, table_name)
+        
+    return dataframes
+
+def export_dataframes_to_csv(dataframes):
+    for table in dataframes:
+        dataframes[table].to_csv(f'data/cleaned/{table}.csv', index=False)

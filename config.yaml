@@ -4,6 +4,8 @@ tables:
     clients:
         paths:
             - data/df_final_demo.txt
+        sources:
+            - https://github.com/data-bootcamp-v4/lessons/blob/main/5_6_eda_inf_stats_tableau/project/files_for_project/df_final_demo.txt
 
         separator: ","
         columns:
@@ -33,7 +35,7 @@ tables:
                 data_type: CHAR(1)
                 pandas_dtype: category
                 valid_categories: [U, M, F]
-                fallback_category: 'U'
+                fallback_category: "U"
 
             number_of_accounts:
                 original_name: num_accts
@@ -58,6 +60,8 @@ tables:
     experiment:
         paths:
             - data/df_final_experiment_clients.txt
+        sources:
+            - https://github.com/data-bootcamp-v4/lessons/blob/main/5_6_eda_inf_stats_tableau/project/files_for_project/df_final_experiment_clients.txt
 
         columns:
             client_id:
@@ -76,6 +80,9 @@ tables:
         paths:
             - data/df_final_web_data_pt_1.txt
             - data/df_final_web_data_pt_2.txt
+        sources:
+            - https://github.com/data-bootcamp-v4/lessons/blob/main/5_6_eda_inf_stats_tableau/project/files_for_project/df_final_web_data_pt_1.txt
+            - https://github.com/data-bootcamp-v4/lessons/blob/main/5_6_eda_inf_stats_tableau/project/files_for_project/df_final_web_data_pt_2.txt
 
         columns:
             client_id:

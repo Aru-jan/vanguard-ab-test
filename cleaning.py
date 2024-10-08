@@ -1,6 +1,3 @@
-from IPython.display import display
-import pandas as pd
-
 
 # rename columns
 def rename_columns(dataFrames, config):

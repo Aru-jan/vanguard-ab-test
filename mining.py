@@ -15,6 +15,7 @@ def import_data_from_config(config, table_name: str) -> pd.DataFrame:
 
     table = config['tables'][table_name]
     paths = table.get('paths')
+    #sources = table.get('sources')
     
     separator = table.get('separator', ',')
     
