@@ -5,3 +5,11 @@ def rename_columns(dataFrames, config):
 
         dataFrames[name] = dataFrame.rename(columns=new_names)
     return dataFrames
+
+# select columns
+def select_columns(dataFrames, config):
+    for name, dataFrame in dataFrames.items():
+        selected_columns = config['tables'][name]['columns'].keys()
+        dataFrames[name] = dataFrame[selected_columns]
+    return dataFrames
+
