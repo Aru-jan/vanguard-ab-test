@@ -1,3 +1,4 @@
+# rename columns
 def rename_columns(dataFrames, config):
     for name, dataFrame in dataFrames.items():
         new_names = {values['original_name']: new_name for new_name,
@@ -12,4 +13,3 @@ def select_columns(dataFrames, config):
         selected_columns = config['tables'][name]['columns'].keys()
         dataFrames[name] = dataFrame[selected_columns]
     return dataFrames
-

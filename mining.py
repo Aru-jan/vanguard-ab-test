@@ -4,7 +4,8 @@ import pandas as pd
 # import data from txt file into pandas dataframe
 def import_data(paths: list, separator: str = ',') -> pd.DataFrame:
     
-    data = pd.concat([pd.read_csv(path, sep=separator) for path in paths], axis=1)
+    data = pd.concat([pd.read_csv(path, sep=separator) for path in paths], axis=0)
+    data = data.reset_index(drop=True)
     #data = pd.read_csv(paths, sep=separator)
     return data
 
