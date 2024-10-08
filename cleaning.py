@@ -18,11 +18,7 @@ def select_columns(dataFrames, config):
         dataFrames[name] = dataFrame[selected_columns]
     return dataFrames
 
-def display_categorical_value_counts(dataFrames, config):
-    for table in config['tables']:
-        for column in config['tables'][table]['columns']:
-            column_config = config['tables'][table]['columns'][column]
-            if column_config.get('pandas_dtype') == 'category':
-                print(f"Value counts for {table}.{column}:")
-                display(dataFrames[table][column].value_counts())
-                print("\n")
+def display_categorical_value_counts(dataFrames):
+    for dataFrame in dataFrames.values():
+        for column in dataFrame.select_dtypes(include=['category']):
+            display(dataFrame[column].value_counts())

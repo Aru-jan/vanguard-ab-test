@@ -100,4 +100,4 @@ tables:
             date_time:
                 original_name: date_time
                 data_type: DATETIME
-                pandas_dtype: datetime64
+                pandas_dtype: datetime64[ns]

@@ -29,4 +29,5 @@ def parse_config():
 
 def display_dataFrames(dataFrames):
     for name, dataFrame in dataFrames.items():
+        display(dataFrame.dtypes)
         display(name, dataFrame)
