@@ -4,7 +4,6 @@ import pandas as pd
 # import data from txt file into pandas dataframe
 def import_data(paths: list, separator: str = ',') -> pd.DataFrame:
     
-    print(paths)
     data = pd.concat([pd.read_csv(path, sep=separator) for path in paths], axis=1)
     #data = pd.read_csv(paths, sep=separator)
     return data
@@ -26,6 +25,6 @@ def parse_config():
         print(config)
     return config
 
-def merge_dfs(*dataframes):
-    return pd.concat(dataframes, axis=1)
-
+def display_dataFrames(dataFrames):
+    for name, dataFrame in dataFrames.items():
+        display(name, dataFrame)
