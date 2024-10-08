@@ -1,3 +1,5 @@
+database_name: vanguard_ab
+refresh_db: false
 tables:
     clients:
         paths:
