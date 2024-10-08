@@ -31,6 +31,7 @@ tables:
                 data_type: CHAR(1)
                 pandas_dtype: category
                 valid_categories: [U, M, F]
+                fallback_category: 'U'
 
             number_of_accounts:
                 original_name: num_accts
@@ -94,7 +95,7 @@ tables:
                 original_name: process_step
                 data_type: VARCHAR(10)
                 pandas_dtype: category
-                valid_categories: [step_1, step_2, step_3, step_4]
+                valid_categories: [start, step_1, step_2, step_3, confirm]
 
             date_time:
                 original_name: date_time
