@@ -65,10 +65,11 @@ tables:
           original_name: Variation
           data_type: VARCHAR(20)
           pandas_dtype: category
-          valid_categories: [Test, Control]
+          valid_categories: [Test, Control, Unknown]
 
   visits:
     path: data/df_final_web_data_pt_1.txt
+
     columns:
 
       - client_id:
@@ -96,3 +97,19 @@ tables:
           original_name: date_time
           data_type: DATETIME
           pandas_dtype: datetime64
+
+  new_data:
+    path: data/df_final_web_data_pt_2.txt
+
+    columns:
+    
+      - client_id:
+          original_name: client_id
+          data_type: INTEGER
+          pandas_dtype: int64
+
+      - visitor_id:
+          original_name: visitor_id
+          data_type: VARCHAR(50)
+          pandas_dtype: object
+
