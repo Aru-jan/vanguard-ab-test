@@ -1,115 +1,102 @@
 tables:
-  clients:
-    path: data/df_final_demo.txt
-    separator: ','
-    columns:
+    clients:
+        paths:
+            - data/df_final_demo.txt
 
-      - client_id:
-          original_name: client_id
-          data_type: INTEGER
-          primary_key: true
-          pandas_dtype: int64
+        separator: ","
+        columns:
+            - client_id:
+                  original_name: client_id
+                  data_type: INTEGER
+                  primary_key: true
+                  pandas_dtype: int64
 
-      - clnt_tenure_yr:
-          original_name: clnt_tenure_yr
-          data_type: FLOAT
-          pandas_dtype: float64
+            - clnt_tenure_yr:
+                  original_name: clnt_tenure_yr
+                  data_type: FLOAT
+                  pandas_dtype: float64
 
-      - clnt_tenure_mnth:
-          original_name: clnt_tenure_mnth
-          data_type: FLOAT
-          pandas_dtype: float64
+            - clnt_tenure_mnth:
+                  original_name: clnt_tenure_mnth
+                  data_type: FLOAT
+                  pandas_dtype: float64
 
-      - clnt_age:
-          original_name: clnt_age
-          data_type: FLOAT
-          pandas_dtype: float64
+            - clnt_age:
+                  original_name: clnt_age
+                  data_type: FLOAT
+                  pandas_dtype: float64
 
-      - gendr:
-          original_name: gendr
-          data_type: CHAR(1)
-          pandas_dtype: category
-          valid_categories: [U, M, F]
+            - gendr:
+                  original_name: gendr
+                  data_type: CHAR(1)
+                  pandas_dtype: category
+                  valid_categories: [U, M, F]
 
-      - num_accts:
-          original_name: num_accts
-          data_type: FLOAT
-          pandas_dtype: float64
+            - num_accts:
+                  original_name: num_accts
+                  data_type: FLOAT
+                  pandas_dtype: float64
 
-      - bal:
-          original_name: bal
-          data_type: FLOAT
-          pandas_dtype: float64
+            - bal:
+                  original_name: bal
+                  data_type: FLOAT
+                  pandas_dtype: float64
 
-      - calls_6_mnth:
-          original_name: calls_6_mnth
-          data_type: FLOAT
-          pandas_dtype: float64
+            - calls_6_mnth:
+                  original_name: calls_6_mnth
+                  data_type: FLOAT
+                  pandas_dtype: float64
 
-      - logons_6_mnth:
-          original_name: logons_6_mnth
-          data_type: FLOAT
-          pandas_dtype: float64
+            - logons_6_mnth:
+                  original_name: logons_6_mnth
+                  data_type: FLOAT
+                  pandas_dtype: float64
 
-  experiment:
-    path: data/df_final_experiment_clients.txt
-    columns:
+    experiment:
+        paths:
+            - data/df_final_experiment_clients.txt
 
-      - client_id:
-          original_name: client_id
-          data_type: INTEGER
-          primary_key: true
-          pandas_dtype: int64
+        columns:
+            - client_id:
+                  original_name: client_id
+                  data_type: INTEGER
+                  primary_key: true
+                  pandas_dtype: int64
 
-      - Variation:
-          original_name: Variation
-          data_type: VARCHAR(20)
-          pandas_dtype: category
-          valid_categories: [Test, Control, Unknown]
+            - Variation:
+                  original_name: Variation
+                  data_type: VARCHAR(20)
+                  pandas_dtype: category
+                  valid_categories: [Test, Control, Unknown]
 
-  visits:
-    path: data/df_final_web_data_pt_1.txt
+    visits:
+        paths:
+            - data/df_final_web_data_pt_1.txt
+            - data/df_final_web_data_pt_2.txt
 
-    columns:
+        columns:
+            - client_id:
+                  original_name: client_id
+                  data_type: INTEGER
+                  pandas_dtype: int64
 
-      - client_id:
-          original_name: client_id
-          data_type: INTEGER
-          pandas_dtype: int64
+            - visitor_id:
+                  original_name: visitor_id
+                  data_type: VARCHAR(50)
+                  pandas_dtype: object
 
-      - visitor_id:
-          original_name: visitor_id
-          data_type: VARCHAR(50)
-          pandas_dtype: object
+            - visit_id:
+                  original_name: visit_id
+                  data_type: VARCHAR(50)
+                  pandas_dtype: object
 
-      - visit_id:
-          original_name: visit_id
-          data_type: VARCHAR(50)
-          pandas_dtype: object
+            - process_step:
+                  original_name: process_step
+                  data_type: VARCHAR(10)
+                  pandas_dtype: category
+                  valid_categories: [step_1, step_2, step_3, step_4]
 
-      - process_step:
-          original_name: process_step
-          data_type: VARCHAR(10)
-          pandas_dtype: category
-          valid_categories: [step_1, step_2, step_3, step_4]
-          
-      - date_time:
-          original_name: date_time
-          data_type: DATETIME
-          pandas_dtype: datetime64
-
-  new_data:
-    path: data/df_final_web_data_pt_2.txt
-
-    columns:
-    
-      - client_id:
-          original_name: client_id
-          data_type: INTEGER
-          pandas_dtype: int64
-
-      - visitor_id:
-          original_name: visitor_id
-          data_type: VARCHAR(50)
-          pandas_dtype: object
-
+            - date_time:
+                  original_name: date_time
+                  data_type: DATETIME
+                  pandas_dtype: datetime64
