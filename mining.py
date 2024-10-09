@@ -29,44 +29,30 @@ def parse_config():
     return config
 
 def display_dataFrames(dataFrames, *args):
+    # Dictionary to map args to corresponding DataFrame attributes or methods
+    options = {
+        'frame': lambda df: df,
+        'head': lambda df: df.head(),
+        'tail': lambda df: df.tail(),
+        'shape': lambda df: df.shape,
+        'info': lambda df: df.info(),  # Info prints directly so no need for display()
+        'describe': lambda df: df.describe(),
+        'columns': lambda df: df.columns,
+        'dtypes': lambda df: df.dtypes,
+        'isnull': lambda df: df.isnull().sum(),
+        'value_counts': lambda df: df.apply(lambda col: col.value_counts()),
+        'unique': lambda df: df.nunique(),
+        'index': lambda df: df.index,
+        'cat_count': lambda df: df.select_dtypes(include=['category']).apply(lambda col: col.value_counts())
+    }
+    
     for name, dataFrame in dataFrames.items():
         print(f'{name}:')
-        if 'frame' in args:
-            print(f'{name} - Full DataFrame:')
-            display(dataFrame)
-        if 'head' in args:
-            print(f'{name} - Head:')
-            display(dataFrame.head())
-        if 'tail' in args:
-            print(f'{name} - Tail:')
-            display(dataFrame.tail())
-        if 'shape' in args:
-            print(f'{name} - Shape:')
-            display(dataFrame.shape)
-        if 'info' in args:
-            print(f'{name} - Info:')
-            display(dataFrame.info())
-        if 'describe' in args:
-            print(f'{name} - Describe:')
-            display(dataFrame.describe())
-        if 'columns' in args:
-            print(f'{name} - Columns:')
-            display(dataFrame.columns)
-        if 'dtypes' in args:
-            print(f'{name} - Data Types:')
-            display(dataFrame.dtypes)
-        if 'isnull' in args:
-            print(f'{name} - Null Values:')
-            display(dataFrame.isnull().sum())
-        if 'value_counts' in args:
-            print(f'{name} - Value Counts:')
-            display(dataFrame.value_counts())
-        if 'unique' in args:
-            print(f'{name} - Unique Values:')
-            display(dataFrame.nunique())
-        if 'index' in args:
-            print(f'{name} - Index:')
-            display(dataFrame.index)
-        if 'cat_count' in args:
-            print(f'{name} - Category Counts:')
-            display(dataFrame.select_dtypes(include=['category']).value_counts())
+        for arg in args:
+            if arg in options:
+                print(f'{name} - {arg.capitalize()}:')
+                result = options[arg](dataFrame)
+                if arg != 'info':  # Avoid display for 'info' since it prints directly
+                    display(result)
+            else:
+                print(f'Unknown option: {arg}')
