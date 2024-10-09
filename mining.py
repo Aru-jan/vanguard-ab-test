@@ -14,7 +14,9 @@ def import_data(sources: list, separator: str = ',') -> list:
         url = source.get('url', None)
         
         if not (os.path.exists(path)):
+            print(f"Downloading file from {url}")
             save_file_from_url(url, path)
+            print(f"File saved to {path}")
         
         data = pd.read_csv(path, sep=separator)
         data_frames.append(data)

@@ -4,7 +4,7 @@ tables:
     clients:
         sources:
             - path: data/df_final_demo.txt
-              url: https://github.com/data-bootcamp-v4/lessons/blob/main/5_6_eda_inf_stats_tableau/project/files_for_project/df_final_demo.txt
+              url: https://raw.githubusercontent.com/data-bootcamp-v4/lessons/refs/heads/main/5_6_eda_inf_stats_tableau/project/files_for_project/df_final_demo.txt
 
         separator: ","
         columns:
@@ -59,7 +59,7 @@ tables:
     experiment:
         sources:
             - path: data/df_final_experiment_clients.txt
-              url: https://github.com/data-bootcamp-v4/lessons/blob/main/5_6_eda_inf_stats_tableau/project/files_for_project/df_final_experiment_clients.txt
+              url: https://raw.githubusercontent.com/data-bootcamp-v4/lessons/refs/heads/main/5_6_eda_inf_stats_tableau/project/files_for_project/df_final_experiment_clients.txt
 
         columns:
             client_id:
@@ -77,10 +77,9 @@ tables:
     visits:
         sources:
             - path: data/df_final_web_data_pt_1.txt
-              url: https://github.com/data-bootcamp-v4/lessons/blob/main/5_6_eda_inf_stats_tableau/project/files_for_project/df_final_web_data_pt_1.txt
+              url: https://raw.githubusercontent.com/data-bootcamp-v4/lessons/refs/heads/main/5_6_eda_inf_stats_tableau/project/files_for_project/df_final_web_data_pt_1.txt
             - path: data/df_final_web_data_pt_2.txt
-              url: https://github.com/data-bootcamp-v4/lessons/blob/main/5_6_eda_inf_stats_tableau/project/files_for_project/df_final_web_data_pt_2.txt
-
+              url: https://raw.githubusercontent.com/data-bootcamp-v4/lessons/refs/heads/main/5_6_eda_inf_stats_tableau/project/files_for_project/df_final_web_data_pt_2.txt
         columns:
             client_id:
                 original_name: client_id
