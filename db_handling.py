@@ -19,7 +19,7 @@ def create_db(password, config):
     return engine
 
 
-def export_dataframes_to_sql(engine, dataframes, config):
+def export_dataframes_to_sql(engine, dataframes):
 
     for table_name, df in dataframes.items():
         df.to_sql(name=table_name, con=engine,
