@@ -83,3 +83,7 @@ def save_file_from_url(url: str, path: str):
     response = requests.get(url, timeout=20)
     with open(path, 'wb') as file:
         file.write(response.content)
+        
+
+def na_status(config, table):
+    print(config['tables'][table]['dropna'])

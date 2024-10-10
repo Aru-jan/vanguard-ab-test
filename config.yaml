@@ -7,16 +7,12 @@ tables:
               url: https://raw.githubusercontent.com/data-bootcamp-v4/lessons/refs/heads/main/5_6_eda_inf_stats_tableau/project/files_for_project/df_final_demo.txt
 
         separator: ","
+        dropna : true
         columns:
             client_id:
                 original_name: client_id
                 data_type: INTEGER
                 primary_key: true
-                pandas_dtype: int64
-
-            client_since_year:
-                original_name: clnt_tenure_yr
-                data_type: FLOAT
                 pandas_dtype: int64
 
             client_since_month:
@@ -33,7 +29,10 @@ tables:
                 original_name: gendr
                 data_type: CHAR(1)
                 pandas_dtype: category
-                valid_categories: [U, M, F]
+                valid_categories:
+                  - U
+                  - M
+                  - F
                 fallback_category: "U"
 
             number_of_accounts:
@@ -57,6 +56,8 @@ tables:
                 pandas_dtype: int64
 
     experiment:
+        dropna : 'other strat'
+
         sources:
             - path: data/df_final_experiment_clients.txt
               url: https://raw.githubusercontent.com/data-bootcamp-v4/lessons/refs/heads/main/5_6_eda_inf_stats_tableau/project/files_for_project/df_final_experiment_clients.txt
@@ -72,9 +73,13 @@ tables:
                 original_name: Variation
                 data_type: VARCHAR(20)
                 pandas_dtype: category
-                valid_categories: [Test, Control]
+                valid_categories:
+                  - Test
+                  - Control
 
     visits:
+        dropna : false
+
         sources:
             - path: data/df_final_web_data_pt_1.txt
               url: https://raw.githubusercontent.com/data-bootcamp-v4/lessons/refs/heads/main/5_6_eda_inf_stats_tableau/project/files_for_project/df_final_web_data_pt_1.txt
@@ -100,7 +105,12 @@ tables:
                 original_name: process_step
                 data_type: VARCHAR(10)
                 pandas_dtype: category
-                valid_categories: [start, step_1, step_2, step_3, confirm]
+                valid_categories:
+                  - start
+                  - step_1
+                  - step_2
+                  - step_3
+                  - confirm
 
             date_time:
                 original_name: date_time
