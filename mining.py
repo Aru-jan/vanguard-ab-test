@@ -1,26 +1,47 @@
 import yaml
 import pandas as pd
 from IPython.display import display
+import requests
+import os
 
 # import data from txt file into pandas dataframe
-def import_data(paths: list, separator: str = ',') -> pd.DataFrame:
+
+def import_data(sources: list, separator: str = ',') -> list:
+    data_frames = []
     
-    data = pd.concat([pd.read_csv(path, sep=separator) for path in paths], axis=0)
+    for source in sources:
+        path = source.get('path')
+        url = source.get('url', None)
+        
+        if not (os.path.exists(path)):
+            print(f"Downloading file from {url}")
+            save_file_from_url(url, path)
+            print(f"File saved to {path}")
+        
+        data = pd.read_csv(path, sep=separator)
+        data_frames.append(data)
+    
+    return data_frames
+
+def concat_dataframes(data_frames: list) -> pd.DataFrame:
+    data = pd.concat(data_frames, axis=0)
     data = data.reset_index(drop=True)
-    #data = pd.read_csv(paths, sep=separator)
     return data
+    
 
 # import data from config.yaml
 def import_data_from_config(config, table_name: str) -> pd.DataFrame:
-
+    dataframe = pd.DataFrame()
     table = config['tables'][table_name]
-    paths = table.get('paths')
-    #sources = table.get('sources')
-    
+    sources = table['sources']
     separator = table.get('separator', ',')
-    
-    data = import_data(paths, separator)
-    return data
+
+    data = import_data(sources, separator)
+  
+    dataframe = concat_dataframes(data)
+        
+    return dataframe
+
 
 def parse_config():
     with open('config.yaml', 'r', encoding='utf-8') as file:
@@ -56,3 +77,9 @@ def display_dataFrames(dataFrames, *args):
                     display(result)
             else:
                 print(f'Unknown option: {arg}')
+
+
+def save_file_from_url(url: str, path: str):
+    response = requests.get(url, timeout=20)
+    with open(path, 'wb') as file:
+        file.write(response.content)
