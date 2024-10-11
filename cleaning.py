@@ -31,8 +31,7 @@ def clean_categorical_data(dataFrames, config):
                 if fallback:
                     dataFrames[table][column] = dataFrames[table][column].fillna(fallback)
                 else:
-                    dataFrames[table][column] = dataFrames[table][column].cat.add_categories(['unknown'])
-                    dataFrames[table][column] = dataFrames[table][column].fillna('unknown')
+                    dataFrames[table][column] = dataFrames[table][column].dropna()
     return dataFrames
             
 def convert_types(dataFrames, config):
