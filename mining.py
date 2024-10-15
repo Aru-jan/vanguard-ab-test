@@ -57,7 +57,7 @@ def display_dataFrames(dataFrames, *args):
         'tail': lambda df: df.tail(),
         'shape': lambda df: df.shape,
         'info': lambda df: df.info(),  # Info prints directly so no need for display()
-        'describe': lambda df: df.describe(),
+        'describe': lambda df: df.describe(include='all'),
         'columns': lambda df: df.columns,
         'dtypes': lambda df: df.dtypes,
         'isnull': lambda df: df.isnull().sum(),
