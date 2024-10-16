@@ -1,11 +1,13 @@
+from IPython.display import display
+
 def tukeys_test_outliers(my_data, method="show"):
     data = my_data.copy()
     Q1 = data.quantile(0.25)
     Q3 = data.quantile(0.75)
     IQR = Q3 - Q1
     # Define bounds for the outliers
-    lower_bound = Q1 - 1.2 * IQR
-    upper_bound = Q3 + 1 * IQR
+    lower_bound = Q1 - 1.5 * IQR
+    upper_bound = Q3 + 1.5 * IQR
     # Identify the outliers
     outliers = data[(data < lower_bound) | (data > upper_bound)]
     if method == "show":
