@@ -20,6 +20,11 @@ tables:
                 data_type: FLOAT
                 pandas_dtype: int64
 
+            client_since_year:
+                original_name: clnt_tenure_yr
+                data_type: FLOAT
+                pandas_dtype: int64
+
             client_age:
                 original_name: clnt_age
                 data_type: FLOAT
