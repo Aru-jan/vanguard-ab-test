@@ -1,0 +1,5 @@
+-c requirements-dev.txt
+ipython
+autoreload
+flake8
+black
